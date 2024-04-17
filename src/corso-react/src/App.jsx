@@ -1,36 +1,30 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import orn from "../public/Ornitorinco.jpg";
 import "./App.css";
-import "./components/Navbar/Navbar";
-import Navbar from "./components/Navbar/Navbar";
+import Card from "./components/Card/Card";
+import cities from "./cities";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Navbar></Navbar>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="bg-white rounded-md m-6 p-6">
+        <h1 className="text-2xl text-slate-500 font-bold">Corso React</h1>
+        <h2 className="text-2xl text-slate-500 font-bold">Cap. 8 - Le Props</h2>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <img
+        className="w-1/2 h-1/3 object-cover rounded-xl m-auto"
+        alt="intro"
+        src={orn}
+      />
+      <div className="flex flex-row justify-center items-center w-full m-6">
+        {cities.map((city) => (
+          <Card
+            key={city.id}
+            title={city.title}
+            img={city.img}
+            description={city.description}
+            isVisited={city.isVisited}></Card>
+        ))}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
