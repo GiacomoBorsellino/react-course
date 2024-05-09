@@ -32,6 +32,7 @@ function App() {
 
   function editUser() {
     setUser({ ...user, name: "Gwen" });
+    console.log(user);
   }
 
   const value = true;
@@ -91,8 +92,8 @@ function App() {
 
         <button
           className="bg-pink-700 text-white p-2 rounded-md"
-          onClick={setUser}>
-          Edit user {user}
+          onClick={editUser}>
+          Edit user {user.name}
         </button>
       </section>
 
