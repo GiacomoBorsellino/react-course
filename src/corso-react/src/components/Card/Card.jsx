@@ -3,9 +3,15 @@ import "./Card.css";
 function Card({ title, img, description, isVisited, children }) {
   const visitedLabel = isVisited ? "✅ Visitata" : "❌ Non visitata";
 
+  function titoloTalk() {
+    console.log("citta : ", title);
+  }
+
   return (
     <>
-      <div className="flex flex-col justify-center items-center m-2 bg-white text-slate-600 font-semibold w-1/3 rounded-md shadow-md">
+      <div
+        onClick={titoloTalk}
+        className="flex flex-col justify-center items-center m-2 bg-white text-slate-600 font-semibold w-1/3 rounded-md shadow-md">
         <img
           alt="img"
           src={img}
@@ -16,6 +22,7 @@ function Card({ title, img, description, isVisited, children }) {
           <p>{description}</p>
           {isVisited && <span>✅ Visitata</span>}
           {!isVisited && <span>❌ Non visitata</span>}
+          {children}
         </div>
       </div>
     </>
