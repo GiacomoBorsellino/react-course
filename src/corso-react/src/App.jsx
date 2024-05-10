@@ -1,9 +1,10 @@
 import orn from "../public/orn.jpg";
 import "./App.css";
 import Card from "./components/Card/Card";
+import CardHttp from "./components/CardHttp/CardHttp";
+
 import Label from "./components/Label/Label";
-// import cities from "./cities";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardForm from "./components/CardForm/CardForm";
 import Example from "./components/Example/Example";
 
@@ -45,38 +46,23 @@ function App() {
     addCities([...cities, city]);
   };
 
-  // const [count, setCount] = useState(0);
+  const [data, setData] = useState([]);
 
-  // const [items, setItems] = useState([1, 2, 3]);
-
-  // function aggiungiItem() {
-  //   let nuovoItem = 4;
-  //   setItems([...items, nuovoItem]);
-  //   console.log(items);
-  // }
-
-  // function raddoppiaItems() {
-  //   for (let i = 0; i < items.length; i++) {
-  //     items[i] *= 2;
-  //   }
-
-  //   setItems([...items]);
-  //   console.log(items);
-  // }
-
-  // let conteggio = 0;
-
-  // const [user, setUser] = useState({ name: "Bob", age: 30 });
-
-  // function editUser() {
-  //   setUser({ ...user, name: "Gwen" });
-  //   console.log(user);
-  // }
-
-  // function handleClick() {
-  //   // console.log("bob");
-  //   alert("oaaaa");
-  // }
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "GET",
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <>
@@ -98,56 +84,12 @@ function App() {
       <Example></Example>
 
       {/* Buttons */}
-      {/* <section className="p-6 flex flex-row justify-center items-center gap-2">
-        <button onClick={handleClick}>Clicca</button>
-
-        <button
-          className="bg-slate-700 text-white p-2 rounded-md"
-          onClick={() => {
-            setCount((count) => count + 1);
-          }}>
-          count è {count}
-        </button>
-
-        <button
-          className="bg-red-700 text-white p-2 rounded-md"
-          onClick={() => {
-            conteggio++;
-            console.log(conteggio);
-          }}>
-          conteggio è {conteggio}
-        </button>
-
-        <button
-          className="bg-red-700 text-white p-2 rounded-md"
-          onClick={aggiungiItem}>
-          Items sono {items}
-        </button>
-
-        <button
-          className="bg-green-700 text-white p-2 rounded-md"
-          onClick={raddoppiaItems}>
-          Raddoppia gli Items sono {items}
-        </button>
-
-        <button
-          className="bg-pink-700 text-white p-2 rounded-md"
-          onClick={editUser}>
-          Edit user {user.name}
-        </button>
-      </section> */}
 
       {/* Form */}
       <CardForm addCity={addCity}></CardForm>
 
-      {/* <button
-        className="p-2 bg-slate-700 text-white font-semibold"
-        onClick={addCity}>
-        Add New City
-      </button> */}
-
       {/* Cards */}
-      <div className="flex flex-row flex-wrap justify-center items-center w-full m-6">
+      {/* <div className="flex flex-row flex-wrap justify-center items-center w-full m-6">
         {cities
           // .filter((city) => city.isVisited)
           .map((city) => (
@@ -161,6 +103,14 @@ function App() {
             </Card>
           ))}
         {value ? <Label>ciao</Label> : <Label>salve</Label>}
+      </div> */}
+      <div className="flex flex-row flex-wrap justify-center items-center w-full m-6">
+        {data.map((item) => (
+          <CardHttp
+            key={item.id}
+            title={item.title}
+            description={item.body}></CardHttp>
+        ))}
       </div>
     </>
   );

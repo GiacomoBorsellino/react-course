@@ -4,15 +4,34 @@ import "./Example.css";
 function Example() {
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    // setCount(count + 1);
-    document.title = "Corso React " + count;
-  }, [count]);
+  const [data, setData] = useState(null);
+
+  // useEffect(() => {
+  //   // setCount(count + 1);
+  //   document.title = "Corso React " + count;
+  // }, [count]);
 
   // const handleClick = () => {
   //   setCount(count + 1);
   //   document.title = "Corso React " + count;
   // };
+
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  //     method: "GET",
+  //   })
+  //     .then((response) => {
+  //       // console.log(response.json());
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //       setData(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   return (
     <>
