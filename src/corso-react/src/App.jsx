@@ -6,6 +6,8 @@ function App() {
     <>
       <Navbar></Navbar>
       Homepage
+      {/* FORM */}
+      <section></section>
     </>
   );
 }
