@@ -10,9 +10,9 @@ function Card({ title, img, description, isVisited, children, addCity }) {
 
   return (
     <>
-      <div
+      <main
         onClick={titoloTalk}
-        className="flex flex-col justify-center items-center m-2 bg-white text-slate-600 font-semibold w-1/3 rounded-md shadow-md">
+        className="flex flex-col justify-center items-center m-2 bg-white text-slate-600 font-semibold w-80 rounded-md shadow-md hover:opacity-80">
         <img
           alt="img"
           src={img}
@@ -25,7 +25,7 @@ function Card({ title, img, description, isVisited, children, addCity }) {
           {!isVisited && <span>❌ Non visitata</span>}
           {children}
         </div>
-      </div>
+      </main>
     </>
   );
 }
