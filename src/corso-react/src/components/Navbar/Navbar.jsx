@@ -12,6 +12,9 @@ function Navbar() {
           <Link to={"/cards"}>Cards</Link>
         </li>
         <li className="text-white bg-blue-600 rounded-md p-2">
+          <Link to={"/cards-children"}>Cards Children</Link>
+        </li>
+        <li className="text-white bg-blue-600 rounded-md p-2">
           <Link to={"/about"}>About</Link>
         </li>
       </ul>

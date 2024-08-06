@@ -5,9 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import About from "./pages/About/About.jsx";
 import Cards from "./pages/Cards/Cards.jsx";
+import CardsChildren from "./pages/CardsChildren/CardsChildren.jsx";
 import Homepage from "./pages/Homepage/Homepage.jsx";
 import Card from "./components/Card/Card.jsx";
-import CardChildren from "./components/CardChildren/CardChildren.jsx";
 
 import "./index.css";
 
@@ -18,9 +18,10 @@ const router = createBrowserRouter([
   { path: "/cards/:idCard", element: <Card></Card> },
   {
     path: "/cards-children",
-    element: <CardChildren></CardChildren>,
+    element: <CardsChildren></CardsChildren>,
     children: [{ path: ":idCard", element: <Card></Card> }],
   },
+  { path: "/all", element: <App></App> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,5 +1,7 @@
 import "./App.css";
 import Cards from "./pages/Cards/Cards";
+import CardsChildren from "./pages/CardsChildren/CardsChildren";
+
 import About from "./pages/About/About";
 import Homepage from "./pages/Homepage/Homepage";
 import Navbar from "./components/Navbar/Navbar";
@@ -24,6 +26,9 @@ function App() {
 
       {/* CARDS */}
       <Cards></Cards>
+
+      {/* CARDS CHILDREN */}
+      <CardsChildren></CardsChildren>
     </>
   );
 }

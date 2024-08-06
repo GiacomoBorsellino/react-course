@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./Cards.css";
-import Card from "../../components/Card/Card";
+import Card from "../../components/Card/Card.jsx";
 import Navbar from "./../../components/Navbar/Navbar";
 import citiesImported from "../../cities";
 import { Link } from "react-router-dom";
 
-function App() {
+function Cards() {
   const [cities, setCities] = useState(citiesImported);
 
   function aloa() {
@@ -29,9 +29,11 @@ function App() {
               description={city.description}
               isVisited={city.isVisited}
               onClick={aloa}>
-              <button className="bg-blue-600 text-white rounded-md m-2">
-                <Link to={`/cards/${city.id}`}>Got to City</Link>
-              </button>
+              <Link to={`/cards/${city.id}`} key={city.id}>
+                <button className="bg-blue-600 text-white rounded-md m-2 p-2">
+                  Go to city
+                </button>
+              </Link>
             </Card>
           ))}
         </div>
@@ -40,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default Cards;
