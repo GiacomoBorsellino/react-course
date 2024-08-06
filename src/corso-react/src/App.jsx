@@ -1,50 +1,29 @@
-import { useReducer, useState, useContext } from "react";
 import "./App.css";
-import Card from "./components/Card/Card";
-import Label from "./components/Label/Label";
-import citiesImported from "./cities";
-import orn from "../public/orn.jpg";
+import Cards from "./pages/Cards/Cards";
+import About from "./pages/About/About";
+import Homepage from "./pages/Homepage/Homepage";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  const [cities, setCities] = useState(citiesImported);
-
-  const value = true;
-
-  function aloa() {
-    console.log("città di ");
-  }
-
   return (
     <>
       {/* INTRO */}
       <div className="bg-white rounded-md my-6 p-6">
         <h1 className="text-2xl text-slate-500 font-bold">Corso React</h1>
-        <h2 className="text-2xl text-slate-500 font-bold">
-          Cap. 20 - Context API
-        </h2>
+        <h2 className="text-2xl text-slate-500 font-bold">Cap. 22 - Routing</h2>
       </div>
-      <img
-        className="w-1/2 h-[30vh] object-cover mb-5 rounded-md m-auto"
-        alt="intro"
-        src={orn}
-      />
+
+      {/* NAVBAR */}
+      <Navbar></Navbar>
+
+      {/* Homepage */}
+      <Homepage></Homepage>
+
+      {/* About */}
+      <About></About>
 
       {/* CARDS */}
-      <div className="flex flex-row justify-center items-center w-full mx-auto">
-        {cities
-          // .filter((city) => city.isVisited)
-          .map((city) => (
-            <Card
-              key={city.id}
-              title={city.title}
-              img={city.img}
-              description={city.description}
-              isVisited={city.isVisited}
-              onClick={aloa}>
-              {value ? <Label>ciao</Label> : <Label>salve</Label>}
-            </Card>
-          ))}
-      </div>
+      <Cards></Cards>
     </>
   );
 }
