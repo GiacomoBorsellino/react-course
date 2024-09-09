@@ -1,7 +1,10 @@
 import "./About.css";
 import Navbar from "../../components/Navbar/Navbar";
 
+import useCounter from "../../hooks/userCounter";
+
 function About() {
+  useCounter();
   return (
     <>
       <Navbar></Navbar>
